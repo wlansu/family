@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+    <script>
+        $(function () {
+            var current_year = new Date().getFullYear();
+            $("#datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1900:" + current_year
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+    <div class="hero-unit text-center">
+        <form class="form" action="{% url 'register' %}" method="POST">{% csrf_token %}
+            {{ form }}
+            <div class="controls">
+                <button class="btn btn-primary" type="submit">{% trans 'Submit' %}</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block extrahead %}
+    <script type="text/javascript">
+        bkLib.onDomLoaded(function() {
+            nicEditors.allTextAreas();
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="span10 offset1">
+        <h2>{% trans "Leave a comment" %}</h2>
+        <p class="lead">
+            {% trans "You can use any of the styling buttons in this taskbar, if you attach an image do be aware that it will be uploaded to http://imgur.com/ and is therefore visible to the general public." %}
+        </p>
+        <div class="hero-unit">
+            <form class="form" action="" method="POST">{% csrf_token %}
+                {{ form }}
+                <div class="form-footer">
+                    <button class="btn btn-primary" type="submit">{% trans 'Submit' %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

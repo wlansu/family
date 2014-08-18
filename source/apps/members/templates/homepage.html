@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load i18n thumbnail %}
+
+{% block content %}
+<div class="row">
+    <div class="span9 offset3">
+        <h2>{% trans 'Family members' %}</h2>
+    </div>
+</div>
+    
+    <div class="row">
+    <div class="span3">
+        <div class="well">
+            <h3>{% trans 'About this site' %}</h3>
+
+            <p>
+                {% trans "This is the website for the Lansu family" %}.<br/>
+                {% trans "It's still a work in progress, as of right now functionality is quite limited" %}.<br/>
+                {% trans "If you have any ideas on what to add, or other suggestions you can always send me an email" %}.<br/>
+                <span id="signature"><a href="{% url 'member' wouter.id %}">-Wouter Lansu</a></span>
+            </p>
+        </div>
+        {% if latest_comments %}
+        <div class="well">
+            <h3>{% trans "Latest comments" %}</h3>
+            {% for comment in latest_comments %}
+                <div class="comment">
+                    <p>{{ comment.text|safe }}</p>
+                    - <a href={% url 'member' comment.member.id %}>{{ comment.member.get_full_name }}</a>
+                </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    {% if request.user.is_authenticated %}
+    <div class="span9">
+
+        <ul class="thumbnails">
+            {% for member in members %}
+            <li class="span3">
+                <a class="member thumbnail" href="{% url 'member' member.id %}">
+                    {% thumbnail member.photo "330x248" crop="center" as im %}
+                        <img src="{{ im.url }}" width="{{ im.x }}" height="{{ im.y }}">
+                    {% empty %}
+                        <img src="{{ STATIC_URL }}img/default-photo.jpg" width="330px" height="248px">
+                    {% endthumbnail %}
+                    <div class="caption">
+                    <h3>{{ member.get_short_name }}</h3>
+                    <p>
+                        {% if member.email %}<span class="mail">{{ member.email }}</span>{% else %}<span class="mail empty">{% trans 'Email unknown' %}</span>{% endif %}
+                        {% if member.telephone %}<span class="phone">{{ member.telephone }}</span>{% else %}<span class="phone empty">{% trans 'Phonenumber unknown' %}</span>{% endif %}
+                        {% if member.birthday %}<span class="birthday">{{ member.birthday }}</span>{% else %}<span class="birthday empty">{% trans 'Birthday unknown' %}</span>{% endif %}
+                </p>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    
+    </div>
+    {% else %}
+    <div class="span9">
+        <div class="lead alert">
+            <p>
+                {% trans 'You must be logged in to see the members of this family.' %} <br />
+                {% trans 'You can log in by clicking on the "account" button in the top right corner.' %}
+            </p>
+        </div>
+    </div>
+    {% endif %}
+    </div>
+{% endblock %}
+

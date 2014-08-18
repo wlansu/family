@@ -1,0 +1,5 @@
+django==1.5.1
+south==0.7.6
+psycopg2
+sorl-thumbnail==11.12
+pillow
