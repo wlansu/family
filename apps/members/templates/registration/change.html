@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block extrahead %}
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+    <script>
+        $(function () {
+            var current_year = new Date().getFullYear();
+            $("#datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1900:" + current_year
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="span8 offset2">
+        <h2>{% trans "Personal information" %}</h2>
+        <p class="lead">
+            {% trans "Here you can change your personal information. You can add children, parents and your partner by visiting their profile and selecting the appropriate action." %}
+        </p>
+        <div class="hero-unit">
+            <form enctype="multipart/form-data" class="form" method="POST">{% csrf_token %}
+                {{ form }}
+                <div class="form-footer">
+                    <button class="btn btn-primary" type="submit">{% trans 'Submit' %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load i18n thumbnail %}
+
+{% block extrahead %}
+    <script type="text/javascript">
+        $(function ()
+            { $("[rel=popover]").popover();
+        });
+    </script>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="span9 offset3">
+        
+    </div>
+</div>
+<div class="row">
+    <div class="span3">
+        <div class="well">
+            <p>{% trans "This is the family member detail page" %}</p>
+            <p>{% trans "Here you can see all relevant information about your family members." %}</p>
+            <p>{% trans "You can also add this person as one of your children, parents or as your partner." %}</p>
+        </div>
+    </div>
+    <div class="span9">
+        <div class="well parents">
+            {% if can_add_parent %}
+                <span class="member-actions">
+                    <a class="btn" rel="popover" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="{% trans "You can add" %} {{ member.get_short_name }} {% trans "as one of your parents." %}" href="{% url 'add_parent' member.id %}" >{% trans "Parent" %}</a>
+                </span>
+            {% endif %}
+        </div>
+        <div class="row-fluid">
+            <div class="span9">
+                <div class="well member-card">
+                    <div class="row-fluid">
+                        <div class="span4">
+                            <ul class="thumbnails">
+                                <li class="span12">
+                                    <div class="thumbnail">
+                                        {% thumbnail member.photo "300x300" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                        {% empty %}
+                                            <img src="{{ STATIC_URL }}img/default-photo.jpg" widht="300" height="300">
+                                        {% endthumbnail %}
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="span8">
+                            <h3>{{ member.get_full_name }}</h3>
+                            <div class="row-fluid">
+                                <div class="span6">
+                                    <h4>{% trans 'Personal information' %}</h4>
+                                    <strong>{% trans 'Birthday' %}:</strong> {{ member.birthday }}<br/>
+                                    {% if member.parents.all %}
+                                    <strong>{% trans 'Parents' %}:</strong>
+                                    <ul>
+                                    {% for parent in member.parents.all %}
+                                        <li><a href="{% url 'member' parent.id %}">{{ parent.get_full_name }}</a></li>
+                                    {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                    {% if member.children.all %}
+                                    <strong>{% trans 'Children' %}:</strong>
+                                    <ul>
+                                        {% for child in member.children.all %}
+                                            <li><a href="{% url 'member' child.id %}">{{ child.get_full_name }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                                <div class="span6">
+                                    <h4>{% trans "Contact" %}</h4>
+                                    {{ member.street }} {{ member.housenumber }}<br/>
+                                    {{ member.zipcode }} {{ member.city }}<br/>
+                                    {{ member.country }}<br/>
+                                    {% if member.email %}<a href="mailto:{{ member.email }}">{{ member.email }}</a><br/>{% endif %}
+                                    {{ member.telephone }}<br/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="span3">
+                <div class="well">
+                    {% if member.partner %}
+                        <strong>{% trans 'Partner' %}:</strong>
+                        <ul>
+                            <li><a href="{% url 'member' member.partner.id %}">{{ member.partner.get_full_name }}</a></li>
+                        </ul>
+                    {% elif can_add_partner %}
+                        <span class="member-actions">
+                            <a class="btn" data-toggle="popover" rel="popover" data-placement="top" data-trigger="hover" data-content="{% trans "You can add" %} {{ member.get_short_name }} {% trans "as your partner." %}" href="{% url 'add_partner' member.id %}">{% trans "This is my partner" %}</a>
+                        </span>
+                    {% else %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <div class="well children">
+            {% if can_add_child %}
+                <span class="member-actions">
+                    <a class="btn" rel="popover" data-toggle="popover" data-placement="top" data-trigger="hover" data-content="{% trans "You can add" %} {{ member.get_short_name }} {% trans "as one of your children." %}" href="{% url 'add_child' member.id %}">{% trans "Child" %}</a>
+                </span>
+            {% endif %}
+        </div>
+        
+    </div>
+    
+</div>
+
+
+<div class="row">
+    <div class="span9 offset3">
+        <h4>{% trans "Comments" %}</h4>
+    </div>    
+</div>
+<div class="row">
+    <div class="span3">
+        <div class="well">
+            {% blocktrans %}
+                <p>This is where you can create a comment.</p>
+                <p>You can let all of us know something interesting that happened.</p>
+            {% endblocktrans %}
+            
+        </div>
+    </div>
+    <div class="span9">
+        {% for comment in comments %}
+            <div class="blog-post">
+                <h5>{{ comment }}</h5>
+                <p>{{ comment.text|safe }}</p>
+                {% if request.user == comment.member %}
+                <div class="blog-actions">
+                    <a class="btn" href="{% url 'edit_comment' comment.id %}">{% trans "Edit" %}</a>
+                    <a class="btn btn-danger pull-right" href="{% url 'delete_comment' comment.id %}">{% trans "Delete" %}</a>
+                </div>
+                {% endif %}
+            </div>
+        {% empty %}
+            <p class="empty">{% trans "No comments here." %}</p>
+        {% endfor %}
+        <p><a class="btn btn-success" href="{% url 'create_comment' %}">{% trans "Leave a comment" %}</a></p>
+    </div>
+</div>
+
+{% endblock %}
