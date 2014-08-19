@@ -55,4 +55,4 @@ docs/_build/
 # Pycharm stuff
 .idea/
 
-source/settings/local_settings.py
+settings/local_settings.py
