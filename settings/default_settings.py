@@ -9,6 +9,8 @@ TEMPLATE_DEBUG = DEBUG
 
 PROJECT_DIR = lambda base: os.path.abspath(os.path.join(os.path.dirname(__file__), '..//', base).replace('\\', '/'))
 
+SECRET_KEY = os.environ.get('SECRET_KEY')
+
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
