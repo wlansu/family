@@ -31,7 +31,7 @@ AUTH_USER_MODEL = 'members.Member'
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.herokuapp.com', ]
 
 TIME_ZONE = 'Europe/Amsterdam'
 LANGUAGE_CODE = 'nl-NL'
