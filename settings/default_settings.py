@@ -4,7 +4,7 @@ import dj_database_url
 
 ugettext = lambda s: s
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 PROJECT_DIR = lambda base: os.path.abspath(os.path.join(os.path.dirname(__file__), '..//', base).replace('\\', '/'))
