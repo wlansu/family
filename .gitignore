@@ -56,3 +56,6 @@ docs/_build/
 .idea/
 
 settings/local_settings.py
+
+static
+staticfiles
