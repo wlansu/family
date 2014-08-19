@@ -46,7 +46,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-MEDIA_ROOT = PROJECT_DIR('media')
+MEDIA_ROOT = 'media'
 MEDIA_URL = '/media/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
