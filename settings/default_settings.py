@@ -9,12 +9,11 @@ TEMPLATE_DEBUG = DEBUG
 
 PROJECT_DIR = lambda base: os.path.abspath(os.path.join(os.path.dirname(__file__), '..//', base).replace('\\', '/'))
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    PROJECT_DIR('static'),
 )
 
 ADMINS = (
