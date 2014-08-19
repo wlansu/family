@@ -14,7 +14,7 @@ framework.
 
 """
 import os
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.local_settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "settings.default_settings")
 
 from django.core.wsgi import get_wsgi_application
 from dj_static import Cling
