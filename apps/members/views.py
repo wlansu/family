@@ -145,7 +145,7 @@ class MailMembersView(FormView):
     def form_valid(self, form):
         subject = form.cleaned_data['title']
         message = form.cleaned_data['text']
-        from_email = settings.FROM_EMAIL
+        from_email = settings.EMAIL_HOST_USER
         to_email = [x.email for x in Member.active.all()]
         send_mail(subject, message, from_email, to_email)
         return HttpResponseRedirect(self.get_success_url())
