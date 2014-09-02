@@ -61,11 +61,11 @@ class RegisterForm(forms.ModelForm):
 class MemberChangeForm(forms.ModelForm):
     birthday = forms.DateField(label=_("Birthday"), input_formats=['%d/%m/%Y', '%d-%m-%Y', '%m/%d/%Y', '%m-%d-%Y'],
         widget=forms.DateInput(format='%d/%m/%Y', attrs={'id': 'datepicker'}))
-    photo = forms.ImageField(label=_("Photo"), required=True)
+    # photo = forms.ImageField(label=_("Photo"), required=True)
 
     class Meta:
         model = Member
-        fields = ["photo", "birthday", "telephone", "street", "housenumber",
+        fields = ["name", "email", "birthday", "telephone", "street", "housenumber",
                   "zipcode", "city", "country"]
 
 

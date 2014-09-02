@@ -39,12 +39,7 @@
                             <ul class="thumbnails">
                                 <li class="span12">
                                     <div class="thumbnail">
-                                        {% thumbnail member.photo "300x300" crop="center" as im %}
-                                            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-                                        {% empty %}
-                                            <img src="{{ STATIC_URL }}img/default-photo.jpg" widht="300" height="300">
-                                        {% endthumbnail %}
-
+                                        <img src="{{ STATIC_URL }}img/default-photo.jpg" widht="300" height="300">
                                     </div>
                                 </li>
                             </ul>

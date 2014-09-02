@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-04 15:58+0200\n"
+"POT-Creation-Date: 2014-09-02 16:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,7 +29,7 @@ msgstr ""
 msgid "Passwords don't match"
 msgstr ""
 
-#: forms.py:10 models.py:72
+#: forms.py:10 models.py:74
 msgid "Email"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "This will also be your username"
 msgstr ""
 
-#: forms.py:11 models.py:53 models.py:73
+#: forms.py:11 models.py:55 models.py:75
 msgid "Name"
 msgstr ""
 
@@ -53,12 +53,8 @@ msgstr ""
 msgid "Your last name"
 msgstr ""
 
-#: forms.py:13 forms.py:62 models.py:76 templates/member-detail.html:38
+#: forms.py:13 forms.py:62 models.py:78 templates/member-detail.html:52
 msgid "Birthday"
-msgstr ""
-
-#: forms.py:64
-msgid "Photo"
 msgstr ""
 
 #: forms.py:80
@@ -69,143 +65,147 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: models.py:13
+#: models.py:15
 msgid "Users must have an email adress"
 msgstr ""
 
-#: models.py:16
+#: models.py:18
 msgid "Users must have a family"
 msgstr ""
 
-#: models.py:55
+#: models.py:57
 msgid "Family"
 msgstr ""
 
-#: models.py:56
+#: models.py:58
 msgid "Families"
 msgstr ""
 
-#: models.py:74
+#: models.py:76
 msgid "Picture"
 msgstr ""
 
-#: models.py:80
+#: models.py:82
 msgid "Phone number"
 msgstr ""
 
-#: models.py:81
+#: models.py:83
 msgid "Street"
 msgstr ""
 
-#: models.py:82
+#: models.py:84
 msgid "House number"
 msgstr ""
 
-#: models.py:83
+#: models.py:85
 msgid "Zipcode"
 msgstr ""
 
-#: models.py:84
+#: models.py:86
 msgid "City"
 msgstr ""
 
-#: models.py:85
+#: models.py:87
 msgid "Country"
 msgstr ""
 
-#: models.py:95
+#: models.py:98
 msgid "Member"
 msgstr ""
 
-#: models.py:96
+#: models.py:99
 msgid "Members"
 msgstr ""
 
-#: models.py:112
+#: models.py:127
 msgid "Date"
 msgstr ""
 
-#: models.py:113
+#: models.py:128
 msgid "Text"
 msgstr ""
 
-#: views.py:62
+#: views.py:79
 msgid ""
 "Your registration was successful. An administrator will have to approve your "
 "account before you can log in."
 msgstr ""
 
-#: views.py:81
+#: views.py:98
 msgid "Your information has been changed."
 msgstr ""
 
-#: views.py:90
+#: views.py:107
 msgid "Your comment was created."
 msgstr ""
 
-#: views.py:107
+#: views.py:124
 msgid "You are not the owner of this comment"
 msgstr ""
 
-#: views.py:110
+#: views.py:127
 msgid "Your comment has been deleted."
 msgstr ""
 
-#: views.py:120
+#: views.py:137
 msgid "Your comment was changed."
 msgstr ""
 
-#: views.py:137
+#: views.py:154
 msgid "The email has been sent."
 msgstr ""
 
-#: views.py:146
+#: views.py:163
 #, python-format
 msgid "You are younger than %s."
 msgstr ""
 
-#: views.py:148
+#: views.py:165
 #, python-format
 msgid "%s has been added as your child."
 msgstr ""
 
-#: views.py:162
+#: views.py:179
 msgid ""
 "You already have 2 parents. If this is a mistake, please contact an "
 "administrator."
 msgstr ""
 
-#: views.py:164
+#: views.py:181
 #, python-format
 msgid "You are older than %s."
 msgstr ""
 
-#: views.py:166
+#: views.py:183
 #, python-format
 msgid "%s has been added as your parent."
 msgstr ""
 
-#: views.py:181
+#: views.py:198
 #, python-format
 msgid ""
 "You already have a partner: %s. If this is a mistake, please contact an "
 "administrator"
 msgstr ""
 
-#: views.py:184
+#: views.py:201
 #, python-format
 msgid "%s has been added as your partner."
 msgstr ""
 
-#: templates/create_comment.html:16
+#: templates/create_comment.html:15 templates/member-detail.html:143
+msgid "Leave a comment"
+msgstr ""
+
+#: templates/create_comment.html:17
 msgid ""
 "You can use any of the styling buttons in this taskbar, if you attach an "
 "image do be aware that it will be uploaded to http://imgur.com/ and is "
 "therefore visible to the general public."
 msgstr ""
 
-#: templates/create_comment.html:21 templates/mail_members.html:14
-#: templates/registration/change.html:29 templates/registration/login.html:8
+#: templates/create_comment.html:23 templates/mail_members.html:13
+#: templates/registration/change.html:29
 #: templates/registration/register.html:23
 msgid "Submit"
 msgstr ""
@@ -214,68 +214,74 @@ msgstr ""
 msgid "Frequently Asked Questions"
 msgstr ""
 
-#: templates/faq.html:11
+#: templates/faq.html:10
 msgid "How do I change my account details?"
 msgstr ""
 
-#: templates/faq.html:12
+#: templates/faq.html:11
 msgid ""
 "In the top right corner under 'Account' you can find 'Edit details'. Click "
 "this."
 msgstr ""
 
-#: templates/faq.html:17
+#: templates/faq.html:15
 msgid "How do I report a bug?"
 msgstr ""
 
-#: templates/faq.html:18
+#: templates/faq.html:16
 msgid "You can email an administrator by sending an email to: "
 msgstr ""
 
-#: templates/homepage.html:5
+#: templates/homepage.html:7
 msgid "Family members"
 msgstr ""
 
-#: templates/homepage.html:8
+#: templates/homepage.html:14
 msgid "About this site"
 msgstr ""
 
-#: templates/homepage.html:11
+#: templates/homepage.html:17
 msgid "This is the website for the Lansu family"
 msgstr ""
 
-#: templates/homepage.html:12
+#: templates/homepage.html:18
 msgid ""
 "It's still a work in progress, as of right now functionality is quite limited"
 msgstr ""
 
-#: templates/homepage.html:13
+#: templates/homepage.html:19
 msgid ""
 "If you have any ideas on what to add, or other suggestions you can always "
 "send me an email"
 msgstr ""
 
-#: templates/homepage.html:18
+#: templates/homepage.html:23
+msgid ""
+"I have disabled the uploading of images as it would be costing me money to "
+"host them."
+msgstr ""
+
+#: templates/homepage.html:28
 msgid "Latest comments"
 msgstr ""
 
-#: templates/homepage.html:39
+#: templates/homepage.html:49
 msgid "Email unknown"
 msgstr ""
 
-#: templates/homepage.html:40
+#: templates/homepage.html:50
 msgid "Phonenumber unknown"
 msgstr ""
 
-#: templates/homepage.html:41
+#: templates/homepage.html:51
 msgid "Birthday unknown"
 msgstr ""
 
-#: templates/homepage.html:50
+#: templates/homepage.html:64
 msgid "You must be logged in to see the members of this family."
 msgstr ""
 
-#: templates/homepage.html:51
+#: templates/homepage.html:65
 msgid ""
 "You can log in by clicking on the \"account\" button in the top right corner."
 msgstr ""
@@ -284,93 +290,105 @@ msgstr ""
 msgid "Email all family members"
 msgstr ""
 
-#: templates/member-detail.html:18
+#: templates/member-detail.html:21
 msgid "This is the family member detail page"
 msgstr ""
 
-#: templates/member-detail.html:19
+#: templates/member-detail.html:22
 msgid "Here you can see all relevant information about your family members."
 msgstr ""
 
-#: templates/member-detail.html:20
+#: templates/member-detail.html:23
 msgid ""
 "You can also add this person as one of your children, parents or as your "
 "partner."
 msgstr ""
 
-#: templates/member-detail.html:30 templates/member-detail.html.py:31
-#: templates/member-detail.html:32
+#: templates/member-detail.html:30 templates/member-detail.html.py:92
+#: templates/member-detail.html:103
 msgid "You can add"
 msgstr ""
 
 #: templates/member-detail.html:30
-msgid "as one of your children."
-msgstr ""
-
-#: templates/member-detail.html:30
-msgid "Child"
-msgstr ""
-
-#: templates/member-detail.html:31
 msgid "as one of your parents."
 msgstr ""
 
-#: templates/member-detail.html:31
+#: templates/member-detail.html:30
 msgid "Parent"
 msgstr ""
 
-#: templates/member-detail.html:32
-msgid "as your partner."
-msgstr ""
-
-#: templates/member-detail.html:32 templates/member-detail.html.py:56
-msgid "Partner"
-msgstr ""
-
-#: templates/member-detail.html:37 templates/registration/change.html:20
+#: templates/member-detail.html:51 templates/registration/change.html:21
 msgid "Personal information"
 msgstr ""
 
-#: templates/member-detail.html:40
+#: templates/member-detail.html:54
 msgid "Parents"
 msgstr ""
 
-#: templates/member-detail.html:48
+#: templates/member-detail.html:62
 msgid "Children"
 msgstr ""
 
-#: templates/member-detail.html:63
+#: templates/member-detail.html:71
 msgid "Contact"
 msgstr ""
 
-#: templates/member-detail.html:72
+#: templates/member-detail.html:86
+msgid "Partner"
+msgstr ""
+
+#: templates/member-detail.html:92
+msgid "as your partner."
+msgstr ""
+
+#: templates/member-detail.html:92
+msgid "This is my partner"
+msgstr ""
+
+#: templates/member-detail.html:103
+msgid "as one of your children."
+msgstr ""
+
+#: templates/member-detail.html:103
+msgid "Child"
+msgstr ""
+
+#: templates/member-detail.html:115
 msgid "Comments"
 msgstr ""
 
-#: templates/member-detail.html:76
+#: templates/member-detail.html:121
 msgid ""
 "\n"
-"            <p>This is where you can create a comment.</p>\n"
-"            <p>You can let all of us know something interesting that "
+"                <p>This is where you can create a comment.</p>\n"
+"                <p>You can let all of us know something interesting that "
 "happened.</p>\n"
-"        "
+"            "
 msgstr ""
 
-#: templates/member-detail.html:80
-msgid "Create a new comment"
-msgstr ""
-
-#: templates/member-detail.html:90
+#: templates/member-detail.html:135
 msgid "Edit"
 msgstr ""
 
-#: templates/member-detail.html:91
+#: templates/member-detail.html:136
 msgid "Delete"
 msgstr ""
 
-#: templates/registration/change.html:21
+#: templates/member-detail.html:141
+msgid "No comments here."
+msgstr ""
+
+#: templates/registration/change.html:23
 msgid ""
 "Here you can change your personal information. You can add children, parents "
 "and your partner by visiting their profile and selecting the appropriate "
 "action."
+msgstr ""
+
+#: templates/registration/login.html:8
+msgid "Please, log in, thanks!"
+msgstr ""
+
+#: templates/registration/login.html:12
+msgid "Login"
 msgstr ""
